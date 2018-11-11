@@ -1,0 +1,8 @@
+---
+layout: default
+img: drums.jpg 
+category: Services
+title: syncopython 
+description: |
+---
+As a mentee in the [ChiPy Mentorship Program](https://chipymentor.org/), I enjoyed this fun project for intuitive rhythm production. 

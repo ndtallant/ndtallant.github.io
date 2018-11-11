@@ -1,43 +1,28 @@
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if site.compass.author %}{{ site.compass.author }} &#8226; {% endif %}{{ site.compass.tagline | strip_html }}</title>
 
-  <link rel="apple-touch-icon" href="{{ site.baseurl }}{{ site.compass.logo }}"/>
-  <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="{{ site.url }}{{ site.baseurl }}/favicon.ico" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="{{ site.author }}">
 
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/normalize.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/main.css">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
-  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <meta name="author" content="{{ site.compass.author }}">
-  <meta name="description" content="{{ site.compass.tagline }}"/>
+    <!-- Custom CSS -->
+    <link href="css/landing-page.css" rel="stylesheet">
 
-  <!-- Open Graph tags -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="{{ site.compass.tagline }}"/>
-  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}"/>
-  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ site.compass.logo }}"/>
-  <meta property="og:description" content="{{ site.compass.description }}"/>
-  <meta property="og:site_name" content="{{ site.compass.tagline }}">
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-  <!-- Twitter Card tags -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="{{ site.compass.tagline }}">
-  {% if site.twitter.site %}
-  <meta name="twitter:site" content="{{ site.twitter.site }}">
-  {% endif %}
-  {% if site.twitter.creator %}
-  <meta name="twitter:creator" content="{{ site.twitter.creator }}">
-  {% endif %}
-  <meta name="twitter:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
-  <meta name="twitter:description" content="{{ site.compass.description }}">
-  <meta name="twitter:image:src" content="{{ site.url }}{{ site.baseurl }}{{ site.compass.logo }}">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-  {% if site.compass.include_analytics %}
-  {% include analytics.html %}
-  {% endif %}
 </head>

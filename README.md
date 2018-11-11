@@ -1,21 +1,35 @@
-# Documentation
+# Landing Page Jekyll theme
 
-Compass is a Jekyll theme designed with something very specific in mind: to be a simple and elegant personal landing page that can be easily deployed to [GitHub Pages](https://pages.github.com/).
+Jekyll theme based on [landing-page bootstrap theme ](http://startbootstrap.com/templates/landing-page/)
 
-## How to use Compass
+## How to use
+ - Place a image in `/img/services/`
+ - Create posts to display your services. Use the follow as an example:
 
-1. Start by [installing Bundler](http://bundler.io) `gem install bundler`
-2. [Fork the Compass repository](https://github.com/excentris/compass/fork)
-3. Clone the repository you just forked: `git clone https://github.com/YOUR-USER/compass`
-4. Then run `bundle install` to get [Jekyll](http://jekyllrb.com) and all the dependencies.
-5. Edit `_config.yml` as needed.
-6. Run the Jekyll server with `bundle exec jekyll serve`
-7. Go to `http://localhost:4000`
+```txt
+---
+layout: default
+img: ipad.png
+category: Services
+title: The service title
+---
+The description of this service
+```
 
-## Deploy your site to GitHub Pages
+## Demo
+View this jekyll theme in action [here](https://swcool.github.io/landing-page-theme)
 
-If you want to use Compass as your personal landing page you can deploy your site to GitHub Pages as a [User Page](https://help.github.com/articles/user-organization-and-project-pages/#user--organization-pages). To do so, when you are done modifying your clone, you should rename your repository to `username.github.io` where username is your username. When GitHub builds the page it will be made available at `https://username.github.io`.
+## Screenshot
+![screenshot](https://raw.githubusercontent.com/swcool/landing-page-theme/master/img/screenshot.png)
 
-If you are planning on using a custom domain to direct to your site, modify the CNAME file as described [here](https://help.github.com/articles/adding-a-cname-file-to-your-repository/).
+===
 
-Check the [GitHub Pages Basics](https://help.github.com/categories/github-pages-basics/) for more information.
+For more Jekyll details, read [documentation](http://jekyllrb.com/).
+This Jekyll theme used [Freelancer Jekyll theme](https://github.com/jeromelachaud/freelancer-theme/) as reference.
+
+## License
+The contents of this repository are licensed under the [Apache
+2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
+
+## Version
+1.0.1
