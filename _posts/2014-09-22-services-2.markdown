@@ -1,9 +1,0 @@
----
-layout: default
-img: disclosur.jpg
-category: Services
-title: Disclosing Legislators'<br>Financial Interests
-description: |
----
-
-This Flask application connects citizens to their state level legislators' financial disclosures and possible corporate interests.
