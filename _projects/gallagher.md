@@ -1,11 +1,9 @@
 ---
-title: Predicting Insurance Claim Complexity
+title: Predicting Claim Complexity
 background: /img/truck.jpg 
 ---
+I was fortunate for the opportunity to extend the [award winning](https://www.businessinsurance.com/article/20181104/NEWS08/912324896/Business-Insurance-2018-Innovation-Awards-SMART-Benchmark-Gallagher-Bassett) SMART paradigm to auto bodily injury claims at Gallagher Bassett - providing a vastly more accurate and useful system to benchmark their clients’ claims. 
 
-Extending the [award winning](https://www.businessinsurance.com/article/20181104/NEWS08/912324896/Business-Insurance-2018-Innovation-Awards-SMART-Benchmark-Gallagher-Bassett) SMART paradigm to auto bodily injury claims, I provided Gallagher Bassett a vastly more accurate and useful system to benchmark their clients’ claims. This project encompassed every aspect of a data science task - even meeting with experts for domain knowledge and web-scraping publicly available data. More specifically I...
+Going beyond traditional analysis with internal data, I met with domain experts and collected government data to engineer rich feature sets for supervised learning tasks. Feature genreation was futher informed by an econometric analysis, which also identified key drivers of claim complexity for the industry. Final products included: a deployed predictive model, an automated reporting system, and a documented framework to train new models. 
 
-- Provided insights on claim complexity through econometric analysis (statsmodels)
-- Predicted complexity targets with various supervised learning methods (Sci-Kit Learn)
-- Conducted a geospatial analysis of business (QGIS, SQL Server spatial)
-- Deployed the trained model with an automated reporting system (Flask)
+**Tools**: SQL Server, SQL Server Spatial, QGIS, statsmodels, Sci-Kit Learn, Flask
