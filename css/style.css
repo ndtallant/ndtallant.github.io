@@ -1,0 +1,27 @@
+html,
+body,
+header,
+#intro {
+    height: 100%;
+    background: url("../img/lance-anderson-636845-unsplash.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.professional-section-navbar {
+    width: flex;
+}
+
+.professional-section-navbar li {
+    width: 33%;
+    text-align: center;
+}
+
+.professional-section-navbar a {
+    text-color: white;
+}
+
+
+
