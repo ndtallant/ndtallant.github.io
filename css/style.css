@@ -15,7 +15,7 @@ header,
 }
 
 .professional-section-navbar li {
-    width: 33%;
+    width: 50%; /*change back to 33!*/
     text-align: center;
 }
 
