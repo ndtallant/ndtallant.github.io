@@ -1,0 +1,25 @@
+- title: Predicting Water Main Breaks
+  color: dark 
+  icon: fas fa-wrench
+  link: "http://ndtallant.github.io/water.pdf"
+  description: >
+    Predicted city blocks at risk of water main breaks to implement
+    a proactive maintenance policy using postGIS and python.
+
+- title: Data Census
+  color: dark 
+  icon: fas fa-landmark
+  link: "http://ndtallant.github.io/DataCensus"
+  description: >
+    Developed and deployed a website for sharing policy relevant 
+    datasets using Jekyll and Bootstrap. Coded use cases in R and
+    python for all featured datasets.
+
+- title: syncopython 
+  color: dark
+  icon: fas fa-drum
+  link: "http://github.com/ndtallant/syncopython"
+  description: >
+    Created a text based drum machine in python - blending my love
+    and experience of music and technology - for the Chicago Python
+    Users Group mentorship program.

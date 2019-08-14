@@ -73,7 +73,6 @@
             </a>
         </h3> 
     </div>
-    <br><br>
 </div>
         
 <!--div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="projects-tab">
@@ -83,3 +82,25 @@
     </p>
     <br><br><br>
 </div-->
+
+<!-- Projects --> 
+<div class="container wow animated fadeIn slow" id="projects"> <br><br><br>
+    <h2 class="font-weight-bold white-text">Projects</h2>
+    <hr class="hr-light">
+    <!--Grid row-->
+    <div class="row d-flex justify-content-start ">
+         {% for project in site.data.projects %}
+            <div class="col-md-4 mb-4">
+                {% include experience_card.html
+                   color=project.color 
+                   title=project.title
+                   link=project.link
+                   icon=project.icon
+                   description=project.description %}
+             </div>
+         {% endfor %}
+    </div> <!-- End row -->
+    <br><br><br>
+</div>
+
+
