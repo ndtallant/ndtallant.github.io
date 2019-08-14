@@ -1,0 +1,18 @@
+- title: Applied Data and Governance Fellow
+  icon: fas fa-landmark
+  description: >
+        Researched the implementation of Common Core State Standards within 
+        Chicago Public Schools by utilizing hierarchical linear modeling and 
+        a decade administrative data.
+
+- title: iOS Developer
+  icon: fas fa-mobile-alt
+  description: >
+        Handled UI/UX, application architecture, and model deployment for the iOS 
+        app faceOff - the first iOS application creating real time deepfakes on a mobile device.
+
+- title: Data Science Technical Expert
+  icon: fas fa-chart-line 
+  description: >
+        Instructed Thinkful students on the python data science stack, 
+        SQL (postgres), statistics, machine learning, and data science problem evaluation.
