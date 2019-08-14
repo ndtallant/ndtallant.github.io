@@ -1,93 +1,75 @@
-<!-- Experience Products and Education NAV-->
-<div class="container" id="professional"> <br><br><br>
-    <section class="white-text"> 
-        <ul class="nav professional-section-navbar py-0" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link " id="experience-tab" data-toggle="tab" href="#experience" role="tab" aria-controls="experience" aria-selected="true">
-                    <h2 class="font-weight-bold white-text">Experience</h2>
-                </a>
-            </li>
-        
-            <li class="nav-item">
-                <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="contact" aria-selected="false">
-                    <h2 class="font-weight-bold white-text">Education</h2>
-                </a>
-            </li>
-        </ul>
+<!-- EDUCATION --> 
+<div class="container wow animated fadeIn"> 
+<h2 class="font-weight-bold white-text">Education</h2>
+<hr class="hr-light">
 
-        <hr class="hr-light">
-      
-        <div class="tab-content" id="myTabContent">
-      
-            <!-- Experience --> 
-            <div class="tab-pane fade show active card-set" id="experience" role="tabpanel" aria-labelledby="experience-tab">
-                <!--Grid row-->
-                <div class="row d-flex justify-content-start ">
-                    {% for experience in site.data.experience %}
-                        <div class="col-md-4 mb-4">
-                        {% include experience_card.html
-                           color=experience.color 
-                           title=experience.title
-                           icon=experience.icon
-                           description=experience.description %}
-                       </div>
-                   {% endfor %}
-                </div> <!-- End row -->
-                <br><br><br>
+<!--Grid row-->
+<div class="row d-flex justify-content-center mb-4">
+              
+    <!-- TAMUC -->
+    <div class="col-md-6">
+        <div class="card card-image" style="background-image: linear-gradient(to bottom right, #002949, #1F4164)">
+        <!-- Content -->
+            <div class="text-white text-left d-flex align-items-center py-5 px-3">
+                <div>
+                    <h3 class="card-title pt-2">Liberal Studies in Music & Science</h3>
+                    <hr class="hr-light">
+                    <h4>Bachelor of Science with Honors, TAMU-C</h4>
+                    <br><p>
+                        A development of the "not-so-soft" skills through
+                        performance art and music education, as well as
+                        research training in social psychology and physics.
+                    </p><br><br>
+                </div>
             </div>
-        
-        <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="projects-tab">
-          <p style="font-size: 14pt; text-shadow: 1px 1px 10px black"> 
-            Machine learning, program evaluation, web development, and software engineering for government agencies, non-profit organizations, and private industry.
-          </p>
-          <br><br><br>
         </div>
-        
-        
-        <!-- EDUCATION --> 
-        <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
-          <section class="white-text mt-5" id="education">
-            <!--Grid row-->
-            <div class="row d-flex justify-content-center mb-4">
+    </div> 
               
-              <!-- TAMUC -->
-              <div class="col-md-6">
-                <div class="card card-image" style="background-image: linear-gradient(to bottom right, #002949, #1F4164)">
-                  <!-- Content -->
-                  <div class="text-white text-left d-flex align-items-center py-5 px-3">
-                    <div>
-                        <h3 class="card-title pt-2">Liberal Studies in Music & Science</h3>
-                        <hr class="hr-light">
-                        <h4>Bachelor of Science with Honors, TAMU-C</h4>
-                        <br><p>
-                           A development of the "not-so-soft" skills through
-                           performance art and music education, as well as
-                           research training in social psychology and physics.
-                        </p><br><br>
-                    </div>
-                  </div>
+    <!-- CAPP -->
+    <div class="col-md-6">
+        <div class="card card-image" style="background-image: linear-gradient(to top right, #AE132A, #4E131F)">
+    <!-- Content -->
+            <div class="text-white text-left d-flex align-items-center rgba-black-light py-5 px-3">
+                <div>
+                    <h3 class="card-title pt-2">Computational Analysis & Public Policy</h3>
+                    <hr class="hr-light">
+                    <h4>Master of Science, University of Chicago</h4>
+                    <br><p>
+                        A rigorous study of statistics, computer
+                        science, and economics to prepare policy
+                        minded data scientists, civic technologists,
+                        and researchers.
+                    </p><br><br>
                 </div>
-              </div> 
-              
-              <!-- CAPP -->
-              <div class="col-md-6">
-                <div class="card card-image" style="background-image: linear-gradient(to top right, #AE132A, #4E131F)">
-                  <!-- Content -->
-                  <div class="text-white text-left d-flex align-items-center rgba-black-light py-5 px-3">
-                    <div>
-                        <h3 class="card-title pt-2">Computational Analysis & Public Policy</h3>
-                        <hr class="hr-light">
-                        <h4>Master of Science, University of Chicago</h4>
-                        <br><p>
-                           A rigorous study of statistics, computer
-                           science, and economics to prepare policy
-                           minded data scientists, civic technologists,
-                           and researchers.
-                        </p><br><br>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> <!-- End row -->
-          </section>
+            </div>
         </div>
+    </div>
+</div> <!-- End row -->
+</div>
+
+<!-- Experience --> 
+<div class="container wow animated fadeIn slow" id="professional"> <br><br><br>
+    <h2 class="font-weight-bold white-text">Experience</h2>
+    <hr class="hr-light">
+    <!--Grid row-->
+    <div class="row d-flex justify-content-start ">
+         {% for experience in site.data.experience %}
+            <div class="col-md-4 mb-4">
+                {% include experience_card.html
+                   color=experience.color 
+                   title=experience.title
+                   icon=experience.icon
+                   description=experience.description %}
+             </div>
+         {% endfor %}
+    </div> <!-- End row -->
+    <br><br><br>
+</div>
+        
+<!--div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+    <p style="font-size: 14pt; text-shadow: 1px 1px 10px black"> 
+        Machine learning, program evaluation, web development, and software 
+        engineering for government agencies, non-profit organizations, and private industry.
+    </p>
+    <br><br><br>
+</div-->

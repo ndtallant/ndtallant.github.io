@@ -26,10 +26,15 @@ header,
     text-color: white;
 }
 
-.experience-card-blue {
+.experience-card-red {
     background-image: linear-gradient(to top right, #AE132A, #4E131F);
 }
 
-.experience-card-red {
+.experience-card-dark {
+    background-image: linear-gradient(to top right, #080808, #1f1e1c);
+}
+
+.experience-card-blue {
     background-image: linear-gradient(to top right, #002949, #1F4164);
 }
+

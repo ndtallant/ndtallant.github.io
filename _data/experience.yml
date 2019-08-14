@@ -1,5 +1,5 @@
 - title: Data and Governance Fellow
-  color: blue
+  color: dark 
   icon: fas fa-landmark
   description: >
     Researched the implementation of Common Core State Standards within 
@@ -7,35 +7,35 @@
     a decade administrative data.
 
 - title: iOS Developer
-  color: red 
+  color: dark 
   icon: fas fa-mobile-alt
   description: >
     Handled UI/UX, application architecture, and model deployment for the iOS 
     app faceOff - the first iOS application creating real time deepfakes on a mobile device.
 
 - title: Data Science Technical Expert
-  color: blue
+  color: dark
   icon: fas fa-chart-line 
   description: >
     Thinkful students on the python data science stack, 
     SQL (postgres), statistics, machine learning, and data science problem evaluation.
 
 - title: Analytics Consultant 
-  color: red 
+  color: dark 
   icon: fas fa-tree
   description: >
     Analyzed real-time sensor data across multiple locations in the Nooksack watershed
-    and compared the quality of sensor data to on-the-ground lab sampling.
+    and compadark the quality of sensor data to on-the-ground lab sampling.
 
 - title: Business Insights Analyst 
-  color: blue
+  color: dark
   icon: fas fa-truck
   description: >
     Developed and implemented the Auto Bodily Injury Claim SMART Model for Complexity Adjusted Benchmarking - 
     extending the award winning SMART paradigm. (postgres), statistics, machine learning, and data science problem evaluation.
 
 - title: Corporate Engagement
-  color: red
+  color: dark
   icon: fas fa-apple-alt
   description: >
     Collected and analyzed data of the sustainable food market by communicating directly with companies 
