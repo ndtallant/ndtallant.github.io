@@ -1,5 +1,4 @@
 ---
-layout: default
 permalink: /water-project
 ---
 
@@ -67,11 +66,13 @@ In our dataset, we transformed each of the ACS 1-year Estimate variables to crea
 To augment our dataset with these data, we performed spatial joins between Census 2010 block level shapefiles and city-provided street line files. We made the joins based on the highest amount of overlap between street segments and Census blocks. Furthermore, since we are representing blocks across time, we joined each block in each year to its corresponding year of ACS data.
 
 <p align="center">
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/dssg/waterwedoing-mlpp2018/blob/master/report/images/population_density.png"><img src="./waterwedoing-mlpp2018_report at master · dssg_waterwedoing-mlpp2018_files/population_density.png" alt="population density" height="50%" width="50%" style="max-width:100%;"></a></p>
+  <img src="{{ site.url }}/img/water-report/population_density.png" alt="population density" height="50%" width="50%" style="max-width:100%;">
+</p>
 <p align="center"> <b>Figure 2:</b> Population density at the block level. Darker colors indicate more dense blocks.</p>
 
 <p align="center">
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/dssg/waterwedoing-mlpp2018/blob/master/report/images/pct_black.png"><img src="./waterwedoing-mlpp2018_report at master · dssg_waterwedoing-mlpp2018_files/pct_black.png" alt="percent black" height="50%" width="47%" style="max-width:100%;"></a></p>
+  <img src="{{ site.url }}/img/water-report/pct_black.png" alt="percent black" height="50%" width="47%" style="max-width:100%;">
+</p>
 <p align="center"> <b>Figure 3:</b> Percent of the population that is black. Darker colors indicate a higher percentage of black residents.</p>
 
 
@@ -79,19 +80,19 @@ To augment our dataset with these data, we performed spatial joins between Censu
 Past water main breaks were the greatest predictor of future breaks, with breaks in the past two years accounting for over a third of importance for one year predictions and over forty percent of three year predictions. The conditions of the roads on a city block were important for more immediate predictions, while the age of the mains themselves were important for a more distant prediction.
 
 <div align="center">
-    <a target="_blank" rel="noopener noreferrer" href="https://github.com/dssg/waterwedoing-mlpp2018/blob/master/report/images/One_year_importance.png"><img src="./waterwedoing-mlpp2018_report at master · dssg_waterwedoing-mlpp2018_files/One_year_importance.png" alt="One year feature importance" height="60%" width="60%" style="max-width:100%;"></a>
-    <a target="_blank" rel="noopener noreferrer" href="https://github.com/dssg/waterwedoing-mlpp2018/blob/master/report/images/Three_year_importance.png"><img src="./waterwedoing-mlpp2018_report at master · dssg_waterwedoing-mlpp2018_files/Three_year_importance.png" alt="One year feature importance" height="60%" width="60%" style="max-width:100%;"></a>
+  <img src="{{ site.url }}/img/water-report/One_year_importance.png" alt="One year feature importance" height="60%" width="60%" style="max-width:100%;">
+  <img src="{{ site.url }}/img/water-report/Three_year_importance.png" alt="One year feature importance" height="60%" width="60%" style="max-width:100%;">
 </div>
 <p align="center"> <b>Figure 4:</b> Feature importance for one and three year predictions.</p>
 
-## Evaluation and Chosen Model</h2>
+## Evaluation and Chosen Model
 The model that performed the best across time periods was a K-Nearest Neighbors method using our lead-heavy material imputation, nearby breaks within 500 ft, K set to 5 (the 5 most similar city blocks), and a weighted distance metric between those similar blocks.
 
 <p align="center">  
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/dssg/waterwedoing-mlpp2018/blob/master/report/images/best_knn.png"><img src="./waterwedoing-mlpp2018_report at master · dssg_waterwedoing-mlpp2018_files/best_knn.png" alt="KNN model" height="60%" width="60%" style="max-width:100%;"></a>
+  <img src="{{ site.url }}/img/water-report/best_knn.png" alt="KNN model" height="60%" width="60%" style="max-width:100%;">
+</p>
 
-
-<p align="center"><b>Figure 5:</b> K-Nearest Neighbor Performance Summary.
+<p align="center"><b>Figure 5:</b> K-Nearest Neighbor Performance Summary.</p>
 
 When allocating resources to act on 1% of at-risk city blocks, our model correctly classifies those blocks 76% of the time.
 The model also outperforms the baseline of 10% precision for the 2012 data we used to test the model. 
@@ -102,25 +103,26 @@ Neither of these methods performed as well nor as consistently as KNN.
 We validated our best model through two rounds of validation. In the first round, we did cross validation with 7 temporal holdout sets, each of them training on two years of data and testing on the year that followed. As shown in Figure 6 (below), the the 5-Nearest Neighbor method performed well across all 7 holdouts. Similarly, in our second round of validation we did cross validation with 6 temporal holdout sets, each of them training on three years of data and testing on the year that followed. In each of the holdout sets, the 5-Nearest Neighbor method also performed well across all holdouts. Of all the models we trained, 5-Nearest Neighbors performed the best when averaged across each of these temporal holdouts.
 
 <p align="center">
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/dssg/waterwedoing-mlpp2018/blob/master/report/images/crossvalidation.png"><img src="./waterwedoing-mlpp2018_report at master · dssg_waterwedoing-mlpp2018_files/crossvalidation.png" alt="KNN crossvalidation" height="80%" width="80%" style="max-width:100%;"></a>
+  <img src="{{ site.url }}/img/water-report/crossvalidation.png" alt="KNN crossvalidation" height="80%" width="80%" style="max-width:100%;">
+</p>
 
 
-<p align="center"><b>Figure 6:</b> K-Nearest Neighbor Cross Validation Using 2-Year and 3-Year Temporal Holdouts..
+<p align="center"><b>Figure 6:</b> K-Nearest Neighbor Cross Validation Using 2-Year and 3-Year Temporal Holdouts.</p>
 
 ### Performance With ACS Features
 When we included features generated from Census data in our models, we found improvements in predictive performance only in models trained using the SVM method, while models using all other methods performed either equally or negligibly better. At 1% intervention level, including the Census features in SVM models improved precision by up to 25 percentage points when trained on two years of data and tested on one full year of data.
 
 While including the ACS features does improve predictive performance using the SVM method, we do not include the ACS features in our final models. Since we only have ACS data from 2010-2015, and we are making predictions up to 3 years into the future, this effectively limits our training set to two years of data (2010-2011) as opposed to training models using up to 8 years of data (2004-2011). Furthermore, since we have comparatively more data outside of the 2010-2015 window, we are better able to validate our results for models trained on larger subsets of data compared to the one to two years of training data for models including ACS data. In the future, as more water break data are generated, using ACS data in model training can potentially improve predictive ability.
 
-## Discussion</h2>
+## Discussion
 Based on our feature importance tests above (Figure 4) we discovered that breaks on the same block in the past are the strongest predictor of future breaks. Under the assumption that mains are replaced after leaks and breaks, it is puzzling that previous breaks would predict future breaks. However, since our data doesn't capture information about how the city responded to past breaks, whether a broken main was replaced or merely welded shut, it is unclear from the data why previous breaks are highly predictive of future breaks. Below is a crosstab demonstrating that blocks with past breaks were more likely to be have breaks in the future. The high chi-square value provides evidence that there is a strong difference between blocks that had previous breaks and those that did not.
 
 Similarly, blocks with pipes the oldest pipe being more than 100 years old are also more likely to have future breaks. While the difference is significant with a p-value of .0004, the difference between blocks with the oldest pipes and those with the newest pipes is less stark compared to differences between blocks with 1 or more breaks and those with none.
 
 <p align="center">
-    <a target="_blank" rel="noopener noreferrer" href="https://github.com/dssg/waterwedoing-mlpp2018/blob/master/report/images/crosstabs.png"><img src="./waterwedoing-mlpp2018_report at master · dssg_waterwedoing-mlpp2018_files/crosstabs.png" alt="Cross tabs." height="60%" width="60%" style="max-width:100%;"></a>
-
-<p align="center"> <b>Figure 7:</b> Crosstabs for Past Breaks and Pipe Age on Breaks Within the Next 3 Years.
+  <img src="{{ site.url }}/img/water-report/crosstabs.png" alt="Cross tabs." height="50%" width="50%" style="max-width:100%;">
+</p>
+<p align="center"> <b>Figure 7:</b> Crosstabs for Past Breaks and Pipe Age on Breaks Within the Next 3 Years.</p>
 
 
 #### Policy Recommendations
@@ -128,7 +130,7 @@ The risk scores associated with each city block are not meant to prescribe a str
 
 Sustaining our tool for future use will require continued data collection by the city, and we recommend the city's Water Department look to modern methods of data collection and storage. More reliable data from future breaks and maintenance will only improve our model which relies heavily on historical data.
 
-## Limitations and Caveats</h2>
+## Limitations and Caveats
 In future iterations, we would augment our analysis with socio-economic data to test whether socio-economic measures are predictive of near-future water main breaks. As is the case with racial demographic data, we did not include socio-economic data in our models due the limited temporal scope of ACS data. As an alternative, there may be organizations local to Syracuse or the State of New York that capture these data over a longer period of time.
 
 For the problem we set out to solve, which was to predict which blocks were at risk of a main break, our model sufficiently provides a binary output to indicate whether a break or a leak is likely. However, other considerations, such as discerning which blocks are at risk for more severe breaks or multiple breaks, our model does not offer a solution to this problem formulation. In order to devise a solution that singles out blocks based on severity or quantity of breaks, two important factors need to be addressed; first, when breaks and leaks happen in the future, the city should devise a taxonomy of word orders that captures the relative difference between a small leak, a road cave-in, and the different types of main breaks that occur. Second, the problem would be formulated as a regression problem which could allow us to predict the quantity of breaks that are likely to occur on a block in a given time period.
