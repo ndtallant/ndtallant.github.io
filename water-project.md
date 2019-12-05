@@ -5,7 +5,7 @@ permalink: /water-project
 # Predicting Water Main Breaks in the City of Syracuse
 
 #### Contributors
-<a href="https://github.com/ndtallant">Nick Tallant</a> | <a href="https://github.com/vidal-anguiano">Vidal Anguiano</a> | <a href="https://github.com/lpwarner">Laurence Warner</a>
+<a href="https://github.com/ndtallant">Nick Tallant</a> | <a href="https://github.com/vidal-anguiano">Vidal Anguiano</a> 
 
 ## Policy Motivations
 The infrastructure for potable water in the United States is reaching the end of its life, resulting in almost a quarter of a million water main breaks per year. While the replacement and maintenance of infrastructure is inevitable, the excess costs and risks of water main breaks are not. Ideal preventative maintenance would save municipalities the cost of lost water, construction wages, and property damage while minimizing the disruption of public life for its residents. Replacing water mains before they break also avoids the public health crisis resulting from small unnoticed leaks, such as lead poisoning and other drinking water contamination.
