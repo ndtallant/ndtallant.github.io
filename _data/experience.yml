@@ -1,3 +1,28 @@
+- title: Sr. Data Engineer
+  color: dark 
+  icon: fa fa-wrench
+  description: >
+   Construct and maintain serverless data ingestion pipelines for 
+   global online propaganda, as well as deploy machine learning models
+   into production for analysis of media.
+    
+
+- title: Civic Innovation Fellow
+  color: dark 
+  icon: fas fa-code
+  description: >
+    Created data science products for US SOCOM related to media 
+    of interest to special operations.    
+
+- title: Geospatial Data Scientist
+  color: dark 
+  icon: fas fa-globe
+  description: >
+   Created and combined spatial data concerning land reform 
+   policies in post-WWII Italy, and evaluated those policies through 
+   a spatial regression discontinuity design. 
+    
+
 - title: Data and Governance Fellow
   color: dark 
   icon: fas fa-landmark
