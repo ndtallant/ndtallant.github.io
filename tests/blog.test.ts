@@ -6,6 +6,7 @@ import { test } from 'node:test'
 import { getBlogPosts, formatDate } from '../app/blog/utils'
 import { GET } from '../app/rss/route'
 import sitemap from '../app/sitemap'
+import { thoughtsEnabled } from '../app/site-config'
 import { education, experience } from '../app/data/resume'
 
 test('MDX discovery, metadata, RSS escaping, and sitemap entries', async () => {
@@ -33,13 +34,17 @@ Some **MDX** content.
     const response = GET()
     assert.match(response.headers.get('Content-Type')!, /application\/rss\+xml/)
     const xml = await response.text()
-    assert.match(xml, /Tools &amp; systems: &lt;an example&gt;/)
-    assert.match(xml, /https:\/\/nicktallant.com\/blog\/test-post\//)
     const urls = (await sitemap()).map((entry) => entry.url)
-    assert.ok(urls.includes('https://nicktallant.com/blog/test-post'))
-    assert.equal(urls.length, 3)
-    assert.ok(urls.includes('https://nicktallant.com'))
-    assert.ok(urls.includes('https://nicktallant.com/blog'))
+    if (thoughtsEnabled) {
+      assert.match(xml, /Tools &amp; systems: &lt;an example&gt;/)
+      assert.match(xml, /https:\/\/nicktallant.com\/blog\/test-post\//)
+      assert.ok(urls.includes('https://nicktallant.com/blog/test-post'))
+      assert.equal(urls.length, 3)
+      assert.ok(urls.includes('https://nicktallant.com/blog'))
+    } else {
+      assert.doesNotMatch(xml, /<item>|test-post|Tools/)
+      assert.deepEqual(urls, ['https://nicktallant.com'])
+    }
   } finally {
     process.chdir(originalDirectory)
     rmSync(directory, { recursive: true, force: true })

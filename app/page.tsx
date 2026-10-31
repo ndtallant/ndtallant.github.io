@@ -1,10 +1,7 @@
 import styles from './home.module.css'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Resume } from 'app/components/resume'
-import { BlogPosts } from 'app/components/posts'
 import { Hero } from 'app/components/hero'
-import { Icon } from 'app/components/icons'
 
 export default function Page() {
   return (
@@ -23,20 +20,6 @@ export default function Page() {
         </div>
       </section>
       <Resume />
-      <section id="writing" aria-labelledby="writing-heading" className={styles['home-section']}>
-        <div className={styles['section-container']}>
-          <div className={styles['section-title']}><h2 id="writing-heading">Writing</h2></div>
-          <BlogPosts />
-          <Link href="/blog">All posts →</Link>
-        </div>
-      </section>
-      <section id="contact" aria-labelledby="contact-heading" className={styles['home-section']}>
-        <div className={styles['section-container']}>
-          <div className={styles['section-title']}><h2 id="contact-heading">Contact</h2></div>
-          <div className={styles['contact-item']}><span className={styles['contact-icon']}><Icon name="pin" /></span><div><h3>Location:</h3><p>Chicago, IL</p></div></div>
-          <div className={styles['contact-item']}><span className={styles['contact-icon']}><Icon name="mail" /></span><div><h3>Email:</h3><p><a href="mailto:ndtallant@gmail.com">ndtallant AT gmail</a></p></div></div>
-        </div>
-      </section>
     </>
   )
 }

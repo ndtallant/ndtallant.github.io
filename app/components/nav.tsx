@@ -1,5 +1,6 @@
 'use client'
 
+import { thoughtsEnabled } from '../site-config'
 import styles from '../home.module.css'
 import blogStyles from '../blog/blog.module.css'
 import Link from 'next/link'
@@ -11,8 +12,6 @@ const sections: { id: string; label: string; icon: IconName }[] = [
   { id: 'hero', label: 'Home', icon: 'home' },
   { id: 'about', label: 'About', icon: 'user' },
   { id: 'resume', label: 'Resume', icon: 'resume' },
-  { id: 'writing', label: 'Writing', icon: 'book' },
-  { id: 'contact', label: 'Contact', icon: 'mail' },
 ]
 
 export function Navbar() {
@@ -54,7 +53,7 @@ export function Navbar() {
 
   if (!home) return (
     <nav aria-label="Main navigation" className={blogStyles.navigation}>
-      <Link href="/">home</Link><Link href="/#resume">résumé</Link><Link href="/blog">blog</Link><Link href="/#contact">contact</Link>
+      <Link href="/">home</Link><Link href="/#resume">résumé</Link>{thoughtsEnabled && <Link href="/blog">thoughts</Link>}
     </nav>
   )
 
@@ -67,7 +66,7 @@ export function Navbar() {
             {sections.map(({ id, label, icon }) => (
               <li key={id}><a href={`#${id}`} className={active === id ? styles.active : undefined} aria-label={label} aria-current={active === id ? 'location' : undefined} onClick={() => setOpen(false)}><Icon name={icon} /><span>{label}</span></a></li>
             ))}
-            <li><Link href="/blog" aria-label="Blog" onClick={() => setOpen(false)}><Icon name="book" /><span>Blog</span></Link></li>
+            {thoughtsEnabled && <li><Link href="/blog" aria-label="Thoughts" onClick={() => setOpen(false)}><Icon name="book" /><span>Thoughts</span></Link></li>}
           </ul>
         </nav>
       </header>

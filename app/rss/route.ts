@@ -1,3 +1,4 @@
+import { thoughtsEnabled } from 'app/site-config'
 import { baseUrl } from 'app/sitemap'
 import { getBlogPosts } from 'app/blog/utils'
 
@@ -10,7 +11,7 @@ function escapeXml(value: string) {
 }
 
 export function GET() {
-  const items = getBlogPosts()
+  const items = (thoughtsEnabled ? getBlogPosts() : [])
     .sort((a, b) => Date.parse(b.metadata.publishedAt) - Date.parse(a.metadata.publishedAt))
     .map(({ metadata, slug }) => `<item>
       <title>${escapeXml(metadata.title)}</title>
@@ -24,7 +25,7 @@ export function GET() {
     <rss version="2.0"><channel>
       <title>Nick Tallant</title>
       <link>${baseUrl}</link>
-      <description>Writing by Nick Tallant on software and civic technology.</description>
+      <description>Thoughts by Nick Tallant on software and civic technology.</description>
       ${items}
     </channel></rss>`, {
     headers: { 'Content-Type': 'application/rss+xml; charset=utf-8' },

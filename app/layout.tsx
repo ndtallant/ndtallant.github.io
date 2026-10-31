@@ -1,3 +1,4 @@
+import { thoughtsEnabled } from './site-config'
 import './global.css'
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     title: 'Nick Tallant', description, url: baseUrl,
     siteName: 'Nick Tallant', locale: 'en_US', type: 'website',
   },
-  alternates: { types: { 'application/rss+xml': '/rss' } },
+  alternates: thoughtsEnabled ? { types: { 'application/rss+xml': '/rss' } } : undefined,
   robots: { index: true, follow: true },
 }
 

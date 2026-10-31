@@ -25,7 +25,7 @@ Optional interaction/layout regression checks use Python Playwright: install it 
 
 ## Editing content
 
-- **Homepage:** `app/page.tsx` — bio, portrait, writing, and contact sections.
+- **Homepage:** `app/page.tsx` — bio and portrait; résumé follows via its reusable component.
 - **Résumé:** `app/data/resume.ts` — professional experience and education. `app/components/resume.tsx` provides reusable `Resume`, `ResumeGroup`, and `ResumeItem` components.
 - **Styling:** `app/home.module.css` for the portfolio shell and homepage components; `app/blog/blog.module.css` for blog layouts; `app/components/{posts,mdx}.module.css` for post lists and MDX prose. `app/global.css` contains only document defaults, a small reset, and accessibility preferences. No utility CSS framework or custom PostCSS configuration is required.
 - **Homepage interactions:** `app/components/nav.tsx`, `hero.tsx`, and `site-shell.tsx`.
@@ -33,9 +33,11 @@ Optional interaction/layout regression checks use Python Playwright: install it 
 - **Images:** `public/`.
 - **Domain:** `app/sitemap.ts`, `public/CNAME`, and the root `CNAME`.
 
-### Publishing a post
+### Thoughts (temporarily hidden)
 
-Create `app/blog/posts/your-post-slug.mdx`:
+Thoughts replaces the former Writing/Blog label. `thoughtsEnabled` in `app/site-config.ts` is currently `false`: `/blog` and article pages render the not-found screen, navigation and RSS discovery links are hidden, the feed contains no articles, and the sitemap lists only the homepage. There is no Thoughts section on the homepage. The existing `/blog` URLs and MDX code are retained for later use.
+
+To publish Thoughts, set `thoughtsEnabled` to `true` and rebuild. Create `app/blog/posts/your-post-slug.mdx`:
 
 ```mdx
 ---
@@ -49,9 +51,9 @@ summary: 'A short description for search results and RSS.'
 Write your post here. **Markdown**, links, code blocks, and MDX are supported.
 ```
 
-Commit and deploy to publish at `/blog/your-post-slug/`. The homepage, blog index, RSS feed (`/rss`), and sitemap update automatically at build time. Only trusted, repository-authored MDX should be used: MDX can execute code during compilation. Filenames become public URLs; use lowercase hyphenated names.
+Commit and deploy to publish at `/blog/your-post-slug/`. When Thoughts is enabled, its index, RSS feed (`/rss`), and sitemap update automatically at build time. Only trusted, repository-authored MDX should be used: MDX can execute code during compilation. Filenames become public URLs; use lowercase hyphenated names.
 
-No example posts are published. An internal `__empty` route resolves to the 404 page while the blog is empty, because Next.js static export requires at least one generated parameter for a dynamic route. It disappears from the build once a real post exists and is never listed in the index, RSS, or sitemap.
+No example posts are published. An internal `__empty` route resolves to the 404 page while Thoughts is disabled or has no posts, because Next.js static export requires at least one generated parameter for a dynamic route. It disappears from the build once Thoughts is enabled and a real post exists and is never listed in the index, RSS, or sitemap.
 
 ## Deployment
 

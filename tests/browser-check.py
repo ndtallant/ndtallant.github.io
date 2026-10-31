@@ -16,6 +16,9 @@ try:
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.goto('http://localhost:3838/', wait_until='networkidle')
         assert page.locator('#hero').bounding_box()['height'] == 1000
+        expect(page.locator('#writing, #thoughts, #contact')).to_have_count(0)
+        expect(page.locator('a[href="#contact"], a[href="/#contact"]')).to_have_count(0)
+        expect(page.locator('a[href="/blog"], a[href="#writing"], a[href="#thoughts"], a[href="/rss"]')).to_have_count(0)
         groups = page.locator('#resume h3').locator('..')
         # Read both columns in one frame so section animations cannot skew the comparison.
         columns = groups.evaluate_all('(elements) => elements.map(el => ({ x: el.getBoundingClientRect().x, y: el.getBoundingClientRect().y }))')
@@ -48,17 +51,16 @@ try:
         page.reload(wait_until='networkidle')
         assert page.locator('html').evaluate('(el) => getComputedStyle(el).scrollBehavior') == 'auto'
         assert page.locator('[data-site="home"]').evaluate('(el) => getComputedStyle(el).colorScheme') == 'light'
-        page.get_by_role('button', name='Open navigation').click()
-        page.get_by_role('link', name='Blog', exact=True).click()
-        page.wait_for_url('**/blog/')
-        expect(page.get_by_role('heading', name='My Blog', exact=True)).to_be_visible()
+        response = page.goto('http://localhost:3838/blog/', wait_until='networkidle')
+        assert response.status == 404 or page.get_by_role('heading', name='404 - Page Not Found').is_visible()
+        page.goto('http://localhost:3838/404.html', wait_until='networkidle')
         page.get_by_role('link', name='résumé', exact=True).click()
         page.wait_for_url('**/#resume')
         page.wait_for_timeout(400)
         assert abs(page.locator('#resume').bounding_box()['y']) < 50
         assert not errors, errors
         browser.close()
-        print('PASS: scrolling, scrollspy, columns, mobile menu, back-to-top, cross-page anchors, reduced motion, and overflow')
+        print('PASS: scrolling, scrollspy, columns, mobile menu, back-to-top, cross-page anchors, hidden Thoughts, reduced motion, and overflow')
 finally:
     server.terminate()
     server.wait()

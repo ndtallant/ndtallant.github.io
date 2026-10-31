@@ -1,3 +1,4 @@
+import { thoughtsEnabled } from 'app/site-config'
 import styles from '../blog.module.css'
 import mdxStyles from 'app/components/mdx.module.css'
 import { notFound } from 'next/navigation'
@@ -6,7 +7,7 @@ import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts()
+  let posts = thoughtsEnabled ? getBlogPosts() : []
 
   // Next's static exporter requires a nonempty params list. With no posts,
   // this placeholder resolves to notFound(), not a published sample article.
@@ -18,6 +19,7 @@ export const dynamicParams = false
 type Props = { params: Promise<{ slug: string }> }
 
 export async function generateMetadata({ params }: Props) {
+  if (!thoughtsEnabled) return
   const { slug } = await params
   let post = getBlogPosts().find((post) => post.slug === slug)
   if (!post) {
@@ -59,6 +61,7 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Blog({ params }: Props) {
+  if (!thoughtsEnabled) notFound()
   const { slug } = await params
   let post = getBlogPosts().find((post) => post.slug === slug)
 
