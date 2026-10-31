@@ -52,7 +52,7 @@ export function Navbar() {
 
   if (!home) return (
     <nav aria-label="Main navigation" className="mb-12 flex flex-wrap gap-5 text-sm">
-      <Link href="/">home</Link><Link href="/#resume">résumé</Link><Link href="/blog">blog</Link><Link href="/blogroll">blogroll</Link><Link href="/#contact">contact</Link>
+      <Link href="/">home</Link><Link href="/#resume">résumé</Link><Link href="/blog">blog</Link><Link href="/#contact">contact</Link>
     </nav>
   )
 
@@ -66,7 +66,6 @@ export function Navbar() {
               <li key={id}><a href={`#${id}`} className={active === id ? 'active' : ''} aria-label={label} aria-current={active === id ? 'location' : undefined} onClick={() => setOpen(false)}><Icon name={icon} /><span>{label}</span></a></li>
             ))}
             <li><Link href="/blog" aria-label="Blog" onClick={() => setOpen(false)}><Icon name="book" /><span>Blog</span></Link></li>
-            <li><Link href="/blogroll" aria-label="Blogroll" onClick={() => setOpen(false)}><Icon name="links" /><span>Blogroll</span></Link></li>
           </ul>
         </nav>
       </header>

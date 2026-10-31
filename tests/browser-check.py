@@ -17,8 +17,10 @@ try:
         page.goto('http://localhost:3838/', wait_until='networkidle')
         assert page.locator('#hero').bounding_box()['height'] == 1000
         groups = page.locator('.resume-group')
-        assert groups.nth(0).bounding_box()['y'] == groups.nth(1).bounding_box()['y']
-        assert groups.nth(0).bounding_box()['x'] < groups.nth(1).bounding_box()['x']
+        # Read both columns in one frame so section animations cannot skew the comparison.
+        columns = groups.evaluate_all('(elements) => elements.map(el => ({ x: el.getBoundingClientRect().x, y: el.getBoundingClientRect().y }))')
+        assert columns[0]['y'] == columns[1]['y']
+        assert columns[0]['x'] < columns[1]['x']
         resume_link = page.get_by_role('navigation').get_by_role('link', name='Resume', exact=True)
         resume_link.click()
         page.wait_for_timeout(100)
@@ -47,9 +49,9 @@ try:
         assert page.locator('html').evaluate('(el) => getComputedStyle(el).scrollBehavior') == 'auto'
         assert page.locator('.home-shell').evaluate('(el) => getComputedStyle(el).colorScheme') == 'light'
         page.get_by_role('button', name='Open navigation').click()
-        page.get_by_role('link', name='Blogroll', exact=True).click()
-        page.wait_for_url('**/blogroll/')
-        expect(page.get_by_role('heading', name='Blogroll', exact=True)).to_be_visible()
+        page.get_by_role('link', name='Blog', exact=True).click()
+        page.wait_for_url('**/blog/')
+        expect(page.get_by_role('heading', name='My Blog', exact=True)).to_be_visible()
         page.get_by_role('link', name='résumé', exact=True).click()
         page.wait_for_url('**/#resume')
         page.wait_for_timeout(400)

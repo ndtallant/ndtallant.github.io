@@ -64,7 +64,6 @@ body { margin: 0; background: #fff; color: #272829; }
 .resume-item li { padding-bottom: 10px; }
 .resume-item:last-child { padding-bottom: 0; }
 .resume-item p:last-child { margin-bottom: 0; }
-.writing-links { display: flex; flex-wrap: wrap; gap: 24px; }
 .contact-item { display: flex; gap: 16px; align-items: flex-start; }
 .contact-item + .contact-item { margin-top: 40px; }
 .contact-icon { display: flex; flex: 0 0 44px; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #eef7ff; color: #0563bb; transition: background .3s, color .3s; }

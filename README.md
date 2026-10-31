@@ -27,7 +27,6 @@ Optional interaction/layout regression checks use Python Playwright: install it 
 
 - **Homepage:** `app/page.tsx` — bio, portrait, writing, and contact sections.
 - **Résumé:** `app/data/resume.ts` — professional experience and education. `app/components/resume.tsx` provides reusable `Resume`, `ResumeGroup`, and `ResumeItem` components.
-- **Blogroll:** `app/data/blogroll.ts` — external blogs rendered at `/blogroll`. The included links are starting points, not a statement of personal reading preferences; replace them with your favorites.
 - **Homepage styling:** `app/home.css`; shared MDX/blog styling: `app/global.css`.
 - **Homepage interactions:** `app/components/nav.tsx`, `hero.tsx`, and `site-shell.tsx`.
 - **Social links:** `app/components/social-links.tsx` (shared by the hero and footer).

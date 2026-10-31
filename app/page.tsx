@@ -26,7 +26,7 @@ export default function Page() {
         <div className="section-container">
           <div className="section-title"><h2 id="writing-heading">Writing</h2></div>
           <BlogPosts />
-          <div className="writing-links"><Link href="/blog">All posts →</Link><Link href="/blogroll">Explore the blogroll →</Link></div>
+          <Link href="/blog">All posts →</Link>
         </div>
       </section>
       <section id="contact" aria-labelledby="contact-heading" className="home-section contact">

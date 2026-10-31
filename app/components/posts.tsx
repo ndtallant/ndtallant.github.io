@@ -5,7 +5,7 @@ export function BlogPosts() {
   let allBlogs = getBlogPosts()
 
   if (allBlogs.length === 0) {
-    return <p className="mb-6 text-neutral-600 dark:text-neutral-400">No posts yet. Check back soon, or explore the blogroll.</p>
+    return <p className="mb-6 text-neutral-600 dark:text-neutral-400">No posts yet. Check back soon.</p>
   }
 
   return (

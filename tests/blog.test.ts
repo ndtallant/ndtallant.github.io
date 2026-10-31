@@ -37,7 +37,9 @@ Some **MDX** content.
     assert.match(xml, /https:\/\/nicktallant.com\/blog\/test-post\//)
     const urls = (await sitemap()).map((entry) => entry.url)
     assert.ok(urls.includes('https://nicktallant.com/blog/test-post'))
-    assert.ok(urls.includes('https://nicktallant.com/blogroll'))
+    assert.equal(urls.length, 3)
+    assert.ok(urls.includes('https://nicktallant.com'))
+    assert.ok(urls.includes('https://nicktallant.com/blog'))
   } finally {
     process.chdir(originalDirectory)
     rmSync(directory, { recursive: true, force: true })
