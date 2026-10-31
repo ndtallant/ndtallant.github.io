@@ -1,0 +1,116 @@
+/* Homepage design adapted from MyResume v4.7.0 by BootstrapMade.
+   https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+   https://bootstrapmade.com/license/ */
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: #272829; }
+.blog-shell { max-width: 720px; margin: 0 auto; padding: 32px 24px 0; }
+.home-shell { font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 1.5; color-scheme: light; }
+.home-shell h1, .home-shell h2, .home-shell h3, .home-shell h4 { font-family: 'Raleway', sans-serif; }
+.home-shell a, #footer a { color: #0563bb; text-decoration: none; }
+.home-shell a:hover, #footer a:hover { color: #067ded; }
+.home-shell p { margin-bottom: 16px; }
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; padding: 12px; background: white; color: #0563bb; transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
+.home-section { padding: 60px 0; scroll-margin-top: 16px; }
+.section-container { width: 100%; margin: 0 auto; padding: 0 12px; transition: opacity 1s ease-in-out, transform 1s ease-in-out; }
+.reveal-pending { opacity: 0; transform: translateY(24px); }
+.section-title { text-align: center; padding-bottom: 30px; }
+.section-title h2 { position: relative; margin-bottom: 20px; padding-bottom: 20px; font-size: 32px; font-weight: 700; text-transform: uppercase; color: #45505b; line-height: 1.2; }
+.section-title h2::before, .section-title h2::after { content: ''; position: absolute; display: block; }
+.section-title h2::before { width: 120px; height: 1px; background: #ddd; bottom: 1px; left: calc(50% - 60px); }
+.section-title h2::after { width: 40px; height: 3px; background: #0563bb; bottom: 0; left: calc(50% - 20px); }
+
+/* Fixed icon navigation, expanding labels, and the mobile drawer. */
+.side-header { position: fixed; inset: 0 auto 0 0; z-index: 100; display: flex; align-items: center; padding: 15px; overflow-y: auto; transition: transform .4s; }
+.nav-menu ul { list-style: none; margin: 0; padding: 0; }
+.nav-menu li { position: relative; white-space: nowrap; }
+.nav-menu a { display: flex; align-items: center; gap: 7px; width: 56px; height: 56px; padding: 10px 17px; margin-bottom: 8px; border-radius: 50px; background: #f2f3f5; color: #45505b; font-size: 15px; overflow: hidden; transition: width .3s, background .3s, color .3s; }
+.nav-menu svg { flex-shrink: 0; }
+.nav-menu a span { display: none; padding-right: 6px; }
+.nav-menu a:hover, .nav-menu a:focus-visible, .nav-menu a.active { background: #0563bb; color: white; }
+.nav-menu a:hover, .nav-menu a:focus-visible { width: 100%; }
+.nav-menu a:hover span, .nav-menu a:focus-visible span { display: inline; }
+.mobile-nav-toggle { display: none; position: fixed; top: 10px; right: 10px; z-index: 110; width: 40px; height: 40px; align-items: center; justify-content: center; border: 0; border-radius: 50%; background: #f2f3f5; color: #45505b; cursor: pointer; }
+.mobile-nav-toggle[aria-expanded='true'] { color: white; background: #0563bb; }
+.back-to-top { position: fixed; right: 15px; bottom: 15px; z-index: 90; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #0563bb; opacity: 0; visibility: hidden; transition: opacity .4s; }
+.home-shell .back-to-top, .home-shell .back-to-top:hover { color: white; }
+.back-to-top.active { opacity: 1; visibility: visible; }
+
+/* Full-height hero and the original photograph/white overlay. */
+#hero { position: relative; display: flex; align-items: center; width: 100%; min-height: 100vh; min-height: 100svh; background: url('/hero-bg.jpg') top right / cover no-repeat; padding: 60px 24px; }
+#hero::before { content: ''; position: absolute; inset: 0; background: rgb(255 255 255 / 80%); }
+.hero-content { position: relative; width: 100%; }
+#hero h1 { margin: 0; font-size: 64px; font-weight: 700; line-height: 1.1; color: #45505b; }
+#hero p { margin: 15px 0 0; font-family: 'Poppins', sans-serif; font-size: 26px; color: #45505b; }
+.typed-role { color: #0563bb; letter-spacing: 1px; }
+.typing-cursor { animation: cursor-blink 1s step-end infinite; }
+@keyframes cursor-blink { 50% { opacity: 0; } }
+.social-links { display: flex; gap: 20px; align-items: center; }
+#hero .social-links { margin-top: 30px; }
+#hero .social-links a { color: #45505b; transition: color .3s; }
+#hero .social-links a:hover { color: #0563bb; }
+.about-grid { display: grid; gap: 24px; }
+.profile-image { display: block; width: 100%; height: auto; border-radius: 12px; }
+.about-content h3 { margin-bottom: 8px; font-size: 26px; font-weight: 700; line-height: 1.2; color: #728394; }
+
+/* Original two-column résumé with outlined timeline markers and date pills. */
+.resume-grid { display: grid; gap: 24px; }
+.resume-title { margin: 20px 0; font-size: 26px; font-weight: 700; color: #45505b; line-height: 1.2; }
+.resume-item { position: relative; margin-top: -2px; padding: 0 0 20px 20px; border-left: 2px solid #0563bb; }
+.resume-item::before { content: ''; position: absolute; width: 16px; height: 16px; border-radius: 50%; left: -9px; top: 0; background: white; border: 2px solid #0563bb; }
+.resume-item h4 { margin-bottom: 10px; font-family: 'Poppins', sans-serif; line-height: 1.2; font-size: 18px; font-weight: 600; text-transform: uppercase; color: #0563bb; }
+.resume-item .resume-period { display: inline-block; margin-bottom: 10px; padding: 5px 15px; background: #f7f8f9; font-family: 'Raleway', sans-serif; font-weight: 600; }
+.resume-item ul { list-style: disc; padding-left: 20px; margin-bottom: 16px; }
+.resume-item li { padding-bottom: 10px; }
+.resume-item:last-child { padding-bottom: 0; }
+.resume-item p:last-child { margin-bottom: 0; }
+.writing-links { display: flex; flex-wrap: wrap; gap: 24px; }
+.contact-item { display: flex; gap: 16px; align-items: flex-start; }
+.contact-item + .contact-item { margin-top: 40px; }
+.contact-icon { display: flex; flex: 0 0 44px; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #eef7ff; color: #0563bb; transition: background .3s, color .3s; }
+.contact-item:hover .contact-icon { background: #0563bb; color: white; }
+.contact-item h3 { margin-bottom: 5px; font-size: 22px; line-height: 1.2; font-weight: 600; color: #45505b; }
+.contact-item p, .contact-item p a { font-size: 14px; color: #728394; }
+#footer { padding: 30px 24px; background: #f7f8f9; text-align: center; font-size: 14px; color: #45505b; }
+#footer h3 { margin-bottom: 15px; font-family: 'Poppins', sans-serif; font-size: 36px; font-weight: 600; }
+#footer p { margin-bottom: 40px; font-style: italic; }
+#footer .social-links { justify-content: center; gap: 4px; margin-bottom: 40px; }
+#footer .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: #0563bb; color: white; transition: background .3s; }
+#footer .social-links a:hover { background: #0678e3; }
+#footer .social-links svg { width: 18px; height: 18px; }
+.footer-links { margin: 8px 0; }
+.credits { font-size: 13px; }
+.blog-shell #footer { margin-top: 64px; }
+
+@media (min-width: 576px) { .section-container { max-width: 540px; } }
+@media (min-width: 768px) { .section-container { max-width: 720px; } }
+@media (min-width: 992px) {
+  .section-container { max-width: 960px; }
+  .home-section { margin-left: 100px; }
+  #hero { padding-left: 160px; }
+  .resume-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-grid { grid-template-columns: 1fr 2fr; }
+}
+@media (min-width: 1200px) { .section-container { max-width: 1140px; } }
+@media (min-width: 1400px) { .section-container { max-width: 1320px; } }
+@media (max-width: 991.98px) {
+  .mobile-nav-toggle { display: flex; }
+  .side-header { width: min(300px, calc(100vw - 60px)); background: white; border-right: 1px solid #e6e9ec; transform: translateX(-100%); visibility: hidden; }
+  .side-header.is-open { transform: translateX(0); visibility: visible; }
+  .nav-menu { width: 100%; }
+  .nav-menu a, .nav-menu a:hover { width: 100%; }
+  .nav-menu a span { display: inline; }
+  #hero { text-align: center; }
+  #hero h1 { font-size: 32px; line-height: 36px; }
+  #hero p { margin-top: 10px; font-size: 20px; min-height: 30px; }
+  #hero .social-links { justify-content: center; }
+}
+@media (prefers-color-scheme: dark) {
+  .blog-shell { color: white; background: black; }
+  body:has(.blog-shell) { background: black; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .home-shell *, .home-shell *::before, .home-shell *::after { animation: none !important; transition: none !important; }
+  .reveal-pending { opacity: 1; transform: none; }
+}
