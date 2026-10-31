@@ -1,6 +1,6 @@
 # Nick Tallant
 
-Next.js App Router portfolio based on Vercel’s [Portfolio Starter Kit](https://vercel.com/templates/next.js/portfolio-starter-kit) ([source](https://github.com/vercel/examples/tree/main/solutions/blog), MIT). Uses React, TypeScript, Tailwind CSS, Geist, and local MDX. The homepage preserves the original MyResume visual design without Bootstrap or its JavaScript dependencies: full-height photo hero, typing effect, scroll-aware side navigation, smooth section links, fade-in sections, responsive two-column résumé, and back-to-top control. Open Sans, Raleway, and Poppins are self-hosted; motion respects reduced-motion preferences.
+Next.js App Router portfolio based on Vercel’s [Portfolio Starter Kit](https://vercel.com/templates/next.js/portfolio-starter-kit) ([source](https://github.com/vercel/examples/tree/main/solutions/blog), MIT). Uses React, TypeScript, CSS Modules, Geist, and local MDX. The homepage preserves the original MyResume visual design without Bootstrap or its JavaScript dependencies: full-height photo hero, typing effect, scroll-aware side navigation, smooth section links, fade-in sections, responsive two-column résumé, and back-to-top control. Open Sans, Raleway, and Poppins are self-hosted; motion respects reduced-motion preferences.
 
 ## Development
 
@@ -27,7 +27,7 @@ Optional interaction/layout regression checks use Python Playwright: install it 
 
 - **Homepage:** `app/page.tsx` — bio, portrait, writing, and contact sections.
 - **Résumé:** `app/data/resume.ts` — professional experience and education. `app/components/resume.tsx` provides reusable `Resume`, `ResumeGroup`, and `ResumeItem` components.
-- **Homepage styling:** `app/home.css`; shared MDX/blog styling: `app/global.css`.
+- **Styling:** `app/home.module.css` for the portfolio shell and homepage components; `app/blog/blog.module.css` for blog layouts; `app/components/{posts,mdx}.module.css` for post lists and MDX prose. `app/global.css` contains only document defaults, a small reset, and accessibility preferences. No utility CSS framework or custom PostCSS configuration is required.
 - **Homepage interactions:** `app/components/nav.tsx`, `hero.tsx`, and `site-shell.tsx`.
 - **Social links:** `app/components/social-links.tsx` (shared by the hero and footer).
 - **Images:** `public/`.

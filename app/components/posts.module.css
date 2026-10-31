@@ -1,0 +1,12 @@
+.empty { margin-bottom: 24px; color: #525252; }
+.post { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+.row { display: flex; flex-direction: column; width: 100%; }
+.date { width: 100px; color: #525252; font-variant-numeric: tabular-nums; }
+.title { color: #171717; letter-spacing: -0.025em; }
+@media (min-width: 768px) {
+  .row { flex-direction: row; gap: 8px; }
+}
+@media (prefers-color-scheme: dark) {
+  :global([data-site='blog']) .empty, :global([data-site='blog']) .date { color: oklch(70.8% 0 0); }
+  :global([data-site='blog']) .title { color: #f5f5f5; }
+}

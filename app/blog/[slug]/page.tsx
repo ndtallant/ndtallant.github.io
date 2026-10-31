@@ -1,3 +1,5 @@
+import styles from '../blog.module.css'
+import mdxStyles from 'app/components/mdx.module.css'
 import { notFound } from 'next/navigation'
 import { CustomMDX } from 'app/components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
@@ -88,15 +90,15 @@ export default async function Blog({ params }: Props) {
           }).replace(/</g, '\\u003c'),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
+      <h1 className={styles.articleTitle}>
         {post.metadata.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+      <div className={styles.metadata}>
+        <p className={styles.date}>
           {formatDate(post.metadata.publishedAt)}
         </p>
       </div>
-      <article className="prose">
+      <article className={mdxStyles.prose}>
         <CustomMDX source={post.content} />
       </article>
     </section>

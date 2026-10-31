@@ -1,5 +1,7 @@
 'use client'
 
+import styles from '../home.module.css'
+import blogStyles from '../blog/blog.module.css'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
@@ -51,25 +53,25 @@ export function Navbar() {
   }, [open])
 
   if (!home) return (
-    <nav aria-label="Main navigation" className="mb-12 flex flex-wrap gap-5 text-sm">
+    <nav aria-label="Main navigation" className={blogStyles.navigation}>
       <Link href="/">home</Link><Link href="/#resume">résumé</Link><Link href="/blog">blog</Link><Link href="/#contact">contact</Link>
     </nav>
   )
 
   return (
     <>
-      <button ref={toggle} type="button" className="mobile-nav-toggle" aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="section-navigation" onClick={() => setOpen(!open)}><Icon name={open ? 'close' : 'menu'} /></button>
-      <header className={`side-header${open ? ' is-open' : ''}`}>
-        <nav id="section-navigation" aria-label="Main navigation" className="nav-menu">
+      <button ref={toggle} type="button" className={styles['mobile-nav-toggle']} aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="section-navigation" onClick={() => setOpen(!open)}><Icon name={open ? 'close' : 'menu'} /></button>
+      <header className={`${styles['side-header']} ${open ? styles['is-open'] : ''}`}>
+        <nav id="section-navigation" aria-label="Main navigation" className={styles['nav-menu']}>
           <ul>
             {sections.map(({ id, label, icon }) => (
-              <li key={id}><a href={`#${id}`} className={active === id ? 'active' : ''} aria-label={label} aria-current={active === id ? 'location' : undefined} onClick={() => setOpen(false)}><Icon name={icon} /><span>{label}</span></a></li>
+              <li key={id}><a href={`#${id}`} className={active === id ? styles.active : undefined} aria-label={label} aria-current={active === id ? 'location' : undefined} onClick={() => setOpen(false)}><Icon name={icon} /><span>{label}</span></a></li>
             ))}
             <li><Link href="/blog" aria-label="Blog" onClick={() => setOpen(false)}><Icon name="book" /><span>Blog</span></Link></li>
           </ul>
         </nav>
       </header>
-      <a href="#hero" aria-label="Back to top" className={`back-to-top${scrolled ? ' active' : ''}`}><Icon name="up" /></a>
+      <a href="#hero" aria-label="Back to top" className={`${styles['back-to-top']} ${scrolled ? styles.active : ''}`}><Icon name="up" /></a>
     </>
   )
 }

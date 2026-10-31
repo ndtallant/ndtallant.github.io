@@ -1,5 +1,6 @@
 'use client'
 
+import styles from '../home.module.css'
 import { useEffect, useState } from 'react'
 import { SocialLinks } from './social-links'
 
@@ -33,10 +34,10 @@ export function Hero() {
   }, [])
 
   return (
-    <section id="hero" aria-labelledby="intro-heading">
-      <div className="hero-content">
+    <section id="hero" aria-labelledby="intro-heading" className={styles.hero}>
+      <div className={styles['hero-content']}>
         <h1 id="intro-heading">Nick Tallant</h1>
-        <p><span className="sr-only">{roles.join(', ')}</span><span aria-hidden="true" className="typed-role">{text}<span className="typing-cursor">|</span></span></p>
+        <p><span className={styles['visually-hidden']}>{roles.join(', ')}</span><span aria-hidden="true" className={styles['typed-role']}>{text}<span className={styles['typing-cursor']}>|</span></span></p>
         <SocialLinks />
       </div>
     </section>

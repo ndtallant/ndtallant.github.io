@@ -1,0 +1,52 @@
+.prose {
+  --sh-class: #2d5e9d;
+  --sh-identifier: #354150;
+  --sh-sign: #8996a3;
+  --sh-string: #007f7a;
+  --sh-keyword: #e02518;
+  --sh-comment: #a19595;
+  --sh-jsxliterals: #6266d1;
+  --sh-property: #e25a1c;
+  --sh-entity: #e25a1c;
+}
+.prose .anchor {
+  position: absolute;
+  visibility: hidden;
+  text-decoration: none;
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+.prose a { text-decoration: underline; text-decoration-color: #a3a3a3; text-underline-offset: 2px; text-decoration-thickness: 0.1em; transition: all 150ms; }
+.prose .anchor::after { content: '#'; color: #d4d4d4; }
+.prose .anchor:hover, .prose .anchor:focus-visible, .prose *:hover > .anchor { visibility: visible; }
+.prose pre { background: #fafafa; border: 1px solid #e5e5e5; border-radius: 8px; overflow-x: auto; padding: 8px 12px; font-size: 14px; line-height: 20px; scrollbar-width: none; }
+.prose pre::-webkit-scrollbar { display: none; }
+.prose code { padding: 2px 4px; border-radius: 8px; }
+.prose pre code { padding: 0; border: initial; line-height: 1.5; }
+.prose code span, .prose strong { font-weight: 500; }
+.prose img { margin: 0; }
+.image { border-radius: 8px; }
+.prose p { margin: 16px 0; color: #262626; }
+.prose h1, .prose h2, .prose h3, .prose h4 { font-weight: 500; letter-spacing: -0.025em; margin: 24px 0 8px; }
+.prose h1 { font-size: 36px; line-height: 40px; }
+.prose h2, .prose h3 { font-size: 20px; line-height: 28px; }
+.prose h4 { font-size: 18px; line-height: 28px; }
+.prose ul { list-style: disc; padding-left: 24px; }
+.prose ol { list-style: decimal; padding-left: 24px; }
+.prose table { display: block; max-width: fit-content; overflow-x: auto; white-space: nowrap; }
+.prose > :first-child { margin-top: 1.25em !important; margin-bottom: 1.25em !important; }
+@media (prefers-color-scheme: dark) {
+  .prose {
+    --sh-class: #4c97f8;
+    --sh-identifier: white;
+    --sh-keyword: #f47067;
+    --sh-string: #0fa295;
+  }
+  .prose a { text-decoration-color: #525252; }
+  .prose .anchor::after { color: #404040; }
+  .prose pre { background: #171717; border-color: #171717; }
+  .prose p { color: #e5e5e5; }
+}

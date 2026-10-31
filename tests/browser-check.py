@@ -16,7 +16,7 @@ try:
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.goto('http://localhost:3838/', wait_until='networkidle')
         assert page.locator('#hero').bounding_box()['height'] == 1000
-        groups = page.locator('.resume-group')
+        groups = page.locator('#resume h3').locator('..')
         # Read both columns in one frame so section animations cannot skew the comparison.
         columns = groups.evaluate_all('(elements) => elements.map(el => ({ x: el.getBoundingClientRect().x, y: el.getBoundingClientRect().y }))')
         assert columns[0]['y'] == columns[1]['y']
@@ -28,8 +28,8 @@ try:
         assert 0 < page.evaluate('scrollY') < target - 30, 'Scroll should animate, not jump'
         page.wait_for_timeout(1800)
         expect(resume_link).to_have_attribute('aria-current', 'location')
-        expect(page.locator('.back-to-top')).to_be_visible()
-        page.locator('.back-to-top').click()
+        expect(page.get_by_role('link', name='Back to top')).to_be_visible()
+        page.get_by_role('link', name='Back to top').click()
         page.wait_for_timeout(1800)
         assert page.evaluate('scrollY') < 2
         for width in [320, 390, 768, 1024, 1440]:
@@ -47,7 +47,7 @@ try:
         page.emulate_media(reduced_motion='reduce', color_scheme='dark')
         page.reload(wait_until='networkidle')
         assert page.locator('html').evaluate('(el) => getComputedStyle(el).scrollBehavior') == 'auto'
-        assert page.locator('.home-shell').evaluate('(el) => getComputedStyle(el).colorScheme') == 'light'
+        assert page.locator('[data-site="home"]').evaluate('(el) => getComputedStyle(el).colorScheme') == 'light'
         page.get_by_role('button', name='Open navigation').click()
         page.get_by_role('link', name='Blog', exact=True).click()
         page.wait_for_url('**/blog/')

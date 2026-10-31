@@ -1,0 +1,10 @@
+.navigation { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 48px; font-size: 14px; line-height: 20px; }
+.heading, .articleTitle { font-size: 24px; line-height: 32px; font-weight: 600; letter-spacing: -0.05em; }
+.heading { margin-bottom: 32px; }
+.articleTitle { text-wrap: balance; }
+.notFoundMessage { margin-bottom: 16px; }
+.metadata { display: flex; justify-content: space-between; align-items: center; margin: 8px 0 32px; font-size: 14px; line-height: 20px; }
+.date { color: #525252; }
+@media (prefers-color-scheme: dark) {
+  .date { color: oklch(70.8% 0 0); }
+}

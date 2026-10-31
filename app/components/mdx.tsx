@@ -1,3 +1,4 @@
+import styles from './mdx.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
@@ -45,7 +46,7 @@ function CustomLink(props) {
 }
 
 function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />
+  return <Image alt={props.alt} className={styles.image} {...props} />
 }
 
 function Code({ children, ...props }) {
@@ -74,7 +75,7 @@ function createHeading(level) {
         React.createElement('a', {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: 'anchor',
+          className: styles.anchor,
           'aria-label': `Link to ${children}`,
         }),
       ],

@@ -1,14 +1,13 @@
 /* Homepage design adapted from MyResume v4.7.0 by BootstrapMade.
    https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
    https://bootstrapmade.com/license/ */
-html { scroll-behavior: smooth; }
-body { margin: 0; background: #fff; color: #272829; }
 .blog-shell { max-width: 720px; margin: 0 auto; padding: 32px 24px 0; }
 .home-shell { font-family: 'Open Sans', sans-serif; font-size: 16px; line-height: 1.5; color-scheme: light; }
 .home-shell h1, .home-shell h2, .home-shell h3, .home-shell h4 { font-family: 'Raleway', sans-serif; }
-.home-shell a, #footer a { color: #0563bb; text-decoration: none; }
-.home-shell a:hover, #footer a:hover { color: #067ded; }
+.home-shell a, .footer a { color: #0563bb; text-decoration: none; }
+.home-shell a:hover, .footer a:hover { color: #067ded; }
 .home-shell p { margin-bottom: 16px; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; padding: 12px; background: white; color: #0563bb; transform: translateY(-160%); }
 .skip-link:focus { transform: translateY(0); }
 .home-section { padding: 60px 0; scroll-margin-top: 16px; }
@@ -37,18 +36,18 @@ body { margin: 0; background: #fff; color: #272829; }
 .back-to-top.active { opacity: 1; visibility: visible; }
 
 /* Full-height hero and the original photograph/white overlay. */
-#hero { position: relative; display: flex; align-items: center; width: 100%; min-height: 100vh; min-height: 100svh; background: url('/hero-bg.jpg') top right / cover no-repeat; padding: 60px 24px; }
-#hero::before { content: ''; position: absolute; inset: 0; background: rgb(255 255 255 / 80%); }
+.hero { position: relative; display: flex; align-items: center; width: 100%; min-height: 100vh; min-height: 100svh; background: url('/hero-bg.jpg') top right / cover no-repeat; padding: 60px 24px; }
+.hero::before { content: ''; position: absolute; inset: 0; background: rgb(255 255 255 / 80%); }
 .hero-content { position: relative; width: 100%; }
-#hero h1 { margin: 0; font-size: 64px; font-weight: 700; line-height: 1.1; color: #45505b; }
-#hero p { margin: 15px 0 0; font-family: 'Poppins', sans-serif; font-size: 26px; color: #45505b; }
+.hero h1 { margin: 0; font-size: 64px; font-weight: 700; line-height: 1.1; color: #45505b; }
+.hero p { margin: 15px 0 0; font-family: 'Poppins', sans-serif; font-size: 26px; color: #45505b; }
 .typed-role { color: #0563bb; letter-spacing: 1px; }
 .typing-cursor { animation: cursor-blink 1s step-end infinite; }
 @keyframes cursor-blink { 50% { opacity: 0; } }
 .social-links { display: flex; gap: 20px; align-items: center; }
-#hero .social-links { margin-top: 30px; }
-#hero .social-links a { color: #45505b; transition: color .3s; }
-#hero .social-links a:hover { color: #0563bb; }
+.hero .social-links { margin-top: 30px; }
+.hero .social-links a { color: #45505b; transition: color .3s; }
+.hero .social-links a:hover { color: #0563bb; }
 .about-grid { display: grid; gap: 24px; }
 .profile-image { display: block; width: 100%; height: auto; border-radius: 12px; }
 .about-content h3 { margin-bottom: 8px; font-size: 26px; font-weight: 700; line-height: 1.2; color: #728394; }
@@ -70,23 +69,23 @@ body { margin: 0; background: #fff; color: #272829; }
 .contact-item:hover .contact-icon { background: #0563bb; color: white; }
 .contact-item h3 { margin-bottom: 5px; font-size: 22px; line-height: 1.2; font-weight: 600; color: #45505b; }
 .contact-item p, .contact-item p a { font-size: 14px; color: #728394; }
-#footer { padding: 30px 24px; background: #f7f8f9; text-align: center; font-size: 14px; color: #45505b; }
-#footer h3 { margin-bottom: 15px; font-family: 'Poppins', sans-serif; font-size: 36px; font-weight: 600; }
-#footer p { margin-bottom: 40px; font-style: italic; }
-#footer .social-links { justify-content: center; gap: 4px; margin-bottom: 40px; }
-#footer .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: #0563bb; color: white; transition: background .3s; }
-#footer .social-links a:hover { background: #0678e3; }
-#footer .social-links svg { width: 18px; height: 18px; }
+.footer { padding: 30px 24px; background: #f7f8f9; text-align: center; font-size: 14px; color: #45505b; }
+.footer h3 { margin-bottom: 15px; font-family: 'Poppins', sans-serif; font-size: 36px; font-weight: 600; }
+.footer p { margin-bottom: 40px; font-style: italic; }
+.footer .social-links { justify-content: center; gap: 4px; margin-bottom: 40px; }
+.footer .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: #0563bb; color: white; transition: background .3s; }
+.footer .social-links a:hover { background: #0678e3; }
+.footer .social-links svg { width: 18px; height: 18px; }
 .footer-links { margin: 8px 0; }
 .credits { font-size: 13px; }
-.blog-shell #footer { margin-top: 64px; }
+.blog-shell .footer { margin-top: 64px; }
 
 @media (min-width: 576px) { .section-container { max-width: 540px; } }
 @media (min-width: 768px) { .section-container { max-width: 720px; } }
 @media (min-width: 992px) {
   .section-container { max-width: 960px; }
   .home-section { margin-left: 100px; }
-  #hero { padding-left: 160px; }
+  .hero { padding-left: 160px; }
   .resume-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-grid { grid-template-columns: 1fr 2fr; }
 }
@@ -99,17 +98,15 @@ body { margin: 0; background: #fff; color: #272829; }
   .nav-menu { width: 100%; }
   .nav-menu a, .nav-menu a:hover { width: 100%; }
   .nav-menu a span { display: inline; }
-  #hero { text-align: center; }
-  #hero h1 { font-size: 32px; line-height: 36px; }
-  #hero p { margin-top: 10px; font-size: 20px; min-height: 30px; }
-  #hero .social-links { justify-content: center; }
+  .hero { text-align: center; }
+  .hero h1 { font-size: 32px; line-height: 36px; }
+  .hero p { margin-top: 10px; font-size: 20px; min-height: 30px; }
+  .hero .social-links { justify-content: center; }
 }
 @media (prefers-color-scheme: dark) {
   .blog-shell { color: white; background: black; }
-  body:has(.blog-shell) { background: black; }
 }
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
   .home-shell *, .home-shell *::before, .home-shell *::after { animation: none !important; transition: none !important; }
   .reveal-pending { opacity: 1; transform: none; }
 }
