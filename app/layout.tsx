@@ -17,7 +17,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: { default: 'Nick Tallant', template: '%s | Nick Tallant' },
   description,
-  icons: { icon: '/favicon.png' },
   openGraph: {
     title: 'Nick Tallant', description, url: baseUrl,
     siteName: 'Nick Tallant', locale: 'en_US', type: 'website',
